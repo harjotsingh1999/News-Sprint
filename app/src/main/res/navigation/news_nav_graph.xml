@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/news_nav_graph"
+    app:startDestination="@id/trendingNewsFragment">
+
+    <fragment
+        android:id="@+id/trendingNewsFragment"
+        android:name="com.harjot.newssprint.ui.fragments.TrendingNewsFragment"
+        android:label="TrendingNewsFragment">
+        <action
+            android:id="@+id/action_trendingNewsFragment_to_articleViewFragment"
+            app:destination="@id/articleViewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookmarkedNewsFragment"
+        android:name="com.harjot.newssprint.ui.fragments.BookmarkedNewsFragment"
+        android:label="BookmarkedNewsFragment">
+        <action
+            android:id="@+id/action_bookmarkedNewsFragment_to_articleViewFragment"
+            app:destination="@id/articleViewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchNewsFragment"
+        android:name="com.harjot.newssprint.ui.fragments.SearchNewsFragment"
+        android:label="SearchNewsFragment">
+        <action
+            android:id="@+id/action_searchNewsFragment_to_articleViewFragment"
+            app:destination="@id/articleViewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleViewFragment"
+        android:name="com.harjot.newssprint.ui.fragments.ArticleViewFragment"
+        android:label="ArticleViewFragment" />
+</navigation>
