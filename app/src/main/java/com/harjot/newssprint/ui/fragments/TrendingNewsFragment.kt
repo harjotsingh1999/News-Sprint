@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.harjot.newssprint.R
 import com.harjot.newssprint.adapters.NewsArticleAdapter
@@ -26,6 +27,16 @@ class TrendingNewsFragment : Fragment(R.layout.fragment_trending_news) {
         viewModel = (activity as NewsActivity).viewModel
         setUpRecyclerView()
 
+        newsArticleAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("article", it)
+            }
+
+            findNavController().navigate(
+                R.id.action_trendingNewsFragment_to_articleViewFragment,
+                bundle
+            )
+        }
         viewModel.trendingNews.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is Resource.Success -> {

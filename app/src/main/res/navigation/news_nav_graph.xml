@@ -43,5 +43,9 @@
     <fragment
         android:id="@+id/articleViewFragment"
         android:name="com.harjot.newssprint.ui.fragments.ArticleViewFragment"
-        android:label="ArticleViewFragment" />
+        android:label="ArticleViewFragment" >
+        <argument
+            android:name="article"
+            app:argType="com.harjot.newssprint.models.Article" />
+    </fragment>
 </navigation>
