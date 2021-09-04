@@ -3,6 +3,7 @@ package com.harjot.newssprint.ui
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.harjot.newssprint.models.Article
 import com.harjot.newssprint.models.NewsResponse
 import com.harjot.newssprint.repository.NewsRepository
 import com.harjot.newssprint.utils.Resource
@@ -64,4 +65,20 @@ class NewsViewModel(private val newsRepository: NewsRepository) : ViewModel() {
         }
         return Resource.Error(message = response.message())
     }
+
+
+    fun bookmarkArticle(article: Article) {
+        viewModelScope.launch {
+            newsRepository.upsertArticle(article)
+        }
+    }
+
+    fun getSavedNews() = newsRepository.getSavedNews()
+
+    fun deleteSavedArticle(article: Article) {
+        viewModelScope.launch {
+            newsRepository.deleteArticle(article)
+        }
+    }
+
 }
