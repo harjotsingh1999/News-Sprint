@@ -28,10 +28,10 @@ class ArticleViewFragment : Fragment(R.layout.fragment_article) {
 
         webView.apply {
             webViewClient = WebViewClient()
-            loadUrl(article.url)
+            loadUrl(article.url ?: "www.google.com")
         }
 
-        fab.setOnClickListener{
+        fab.setOnClickListener {
             viewModel.bookmarkArticle(article)
             Snackbar.make(view, "Article saved successfully", Snackbar.LENGTH_LONG).show()
         }
