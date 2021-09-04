@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AbsListView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -62,6 +63,7 @@ class TrendingNewsFragment : Fragment(R.layout.fragment_trending_news) {
                     hideProgressBar()
                     response.message?.let {
                         Log.e(TAG, "onViewCreated: error= $it")
+                        Toast.makeText(context, "An error occurred $it", Toast.LENGTH_SHORT).show()
                     }
                 }
 

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AbsListView
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -77,6 +78,7 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
                     hideProgressBar()
                     response.message?.let {
                         Log.e(TAG, "onViewCreated: error= $it")
+                        Toast.makeText(context, "An error occurred $it", Toast.LENGTH_SHORT).show()
                     }
                 }
 
@@ -108,7 +110,7 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
             super.onScrollStateChanged(recyclerView, newState)
 
             if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
-                Log.e(TAG, "onScrollStateChanged: scrolling", )
+                Log.e(TAG, "onScrollStateChanged: scrolling")
                 isScrolling = true
             }
         }
