@@ -3,11 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/91970/AndroidStudioProjects/MVVMNewsApp/app/src/main/res/drawable/ic_time.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/91970/AndroidStudioProjects/MVVMNewsApp/app/src/main/res/drawable/overlay_gradient.xml" value="0.22864583333333333" />
         <entry key="..\:/Users/91970/AndroidStudioProjects/MVVMNewsApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/91970/AndroidStudioProjects/MVVMNewsApp/app/src/main/res/layout/content_article_fragment.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/91970/AndroidStudioProjects/MVVMNewsApp/app/src/main/res/layout/fragment_article.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/91970/AndroidStudioProjects/MVVMNewsApp/app/src/main/res/layout/fragment_bookmarked_news.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/91970/AndroidStudioProjects/MVVMNewsApp/app/src/main/res/layout/fragment_search_news.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/91970/AndroidStudioProjects/MVVMNewsApp/app/src/main/res/layout/fragment_trending_news.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/91970/AndroidStudioProjects/MVVMNewsApp/app/src/main/res/layout/item_article_preview.xml" value="0.264" />
+        <entry key="..\:/Users/91970/AndroidStudioProjects/MVVMNewsApp/app/src/main/res/layout/layout_article_bottom_sheet.xml" value="0.2" />
         <entry key="..\:/Users/91970/AndroidStudioProjects/MVVMNewsApp/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.20833333333333334" />
       </map>
     </option>

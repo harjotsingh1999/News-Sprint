@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    app:layoutDescription="@xml/content_article_fragment_scene">
+
+    <ImageButton
+        android:id="@+id/article_fragment_back_image_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorTransparent"
+        android:elevation="2dp"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/colorBlack" />
+
+    <View
+        android:id="@+id/image_filter"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/overlay_gradient"
+        android:elevation="1dp"
+        app:layout_constraintBottom_toBottomOf="@id/article_fragment_image_view"
+        app:layout_constraintTop_toTopOf="@id/article_fragment_image_view" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <ImageView
+        android:id="@+id/article_fragment_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/article_fragment_title_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="100dp"
+        android:elevation="2dp"
+        android:ellipsize="marquee"
+        android:maxLines="4"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/article_fragment_image_view"
+        tools:text="This is the title of the article" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

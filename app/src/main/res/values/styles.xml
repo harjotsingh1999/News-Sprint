@@ -1,11 +1,25 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorBlack</item>
+        <item name="colorPrimaryDark">@color/colorBlack</item>
+        <item name="colorAccent">@color/colorGrey</item>
+        <item name="android:navigationBarColor">@color/colorWhite</item>
+        <item name="android:navigationIcon">@color/colorBlack</item>
+        <item name="android:statusBarColor">@color/colorBlack</item>
     </style>
 
+    <style name="BottomNavStyle">
+        <item name="iconTint">@color/colorGrey</item>
+        <item name="backgroundTint">@color/colorWhite</item>
+        <item name="itemTextAppearanceInactive">@color/colorGrey</item>
+        <item name="itemTextAppearanceActive">@color/colorBlack</item>
+    </style>
+
+    <style name="ImageViewShape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
 </resources>

@@ -39,10 +39,10 @@ class BookmarkedNewsFragment() : Fragment(R.layout.fragment_bookmarked_news) {
         }
 
 
-        val itemTouchHelperCallback= object: ItemTouchHelper.SimpleCallback(
+        val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(
             ItemTouchHelper.UP or ItemTouchHelper.DOWN,
             ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
-        ){
+        ) {
             override fun onMove(
                 recyclerView: RecyclerView,
                 viewHolder: RecyclerView.ViewHolder,
@@ -54,9 +54,9 @@ class BookmarkedNewsFragment() : Fragment(R.layout.fragment_bookmarked_news) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
 
                 // get the position of the article swiped
-                val position= viewHolder.adapterPosition
+                val position = viewHolder.adapterPosition
                 // get the article at that position
-                val article= newsArticleAdapter.differ.currentList[position]
+                val article = newsArticleAdapter.differ.currentList[position]
 
                 viewModel.deleteSavedArticle(article)
 

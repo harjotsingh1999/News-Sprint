@@ -7,10 +7,10 @@
     tools:context=".ui.NewsActivity">
 
     <FrameLayout
-        android:id="@+id/flFragment"
+        android:id="@+id/fragment_frame_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,10 +27,11 @@
     </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
+        android:id="@+id/bottom_navigation_view"
+        style="@style/BottomNavStyle"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        app:backgroundTint="#ffffff"
+        android:layout_height="wrap_content"
+        app:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
         android:id="@+id/trendingNewsFragment"
-        android:icon="@drawable/ic_breaking_news"
-        android:title="Trending" />
+        android:icon="@drawable/ic_home"
+        android:title="@string/string_trending" />
+    <item
+        android:id="@+id/searchNewsFragment"
+        android:icon="@drawable/ic_search"
+        android:title="@string/string_explore" />
+
     <item
         android:id="@+id/bookmarkedNewsFragment"
         android:icon="@drawable/ic_favorite"
-        android:title="Bookmarked" />
-    <item
-        android:id="@+id/searchNewsFragment"
-        android:icon="@drawable/ic_all_news"
-        android:title="Search" />
+        android:title="@string/string_saved" />
 </menu>

@@ -1,17 +1,26 @@
 package com.harjot.newssprint.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.harjot.newssprint.R
 import com.harjot.newssprint.models.Article
-import com.bumptech.glide.Glide
+import com.harjot.newssprint.utils.Constants
 import kotlinx.android.synthetic.main.item_article_preview.view.*
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class NewsArticleAdapter : RecyclerView.Adapter<NewsArticleAdapter.NewsArticleViewHolder>() {
+
+    val TAG = "NewsArticleAdapter"
 
     inner class NewsArticleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -25,11 +34,13 @@ class NewsArticleAdapter : RecyclerView.Adapter<NewsArticleAdapter.NewsArticleVi
     override fun onBindViewHolder(holder: NewsArticleViewHolder, position: Int) {
         val article = differ.currentList[position]
         holder.itemView.apply {
-            Glide.with(this).load(article.urlToImage).into(ivArticleImage)
-            tvSource.text = article.source?.name
-            tvTitle.text = article.title
-            tvDescription.text = article.description
-            tvPublishedAt.text = article.publishedAt
+            Glide.with(this).load(article.urlToImage).into(article_image_view)
+            article_source_text_view.text = article.source?.name
+            article_title_text_view.text = article.title
+            article_description_text_view.text = article.description
+            article_time_text_view.text =
+                Constants.getLocalModifiedTime(article.publishedAt ?: "time")
+
             setOnClickListener {
                 onItemClickListener?.let {
                     it(article)
