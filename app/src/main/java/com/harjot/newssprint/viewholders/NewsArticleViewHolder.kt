@@ -3,9 +3,9 @@ package com.harjot.newssprint.viewholders
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.harjot.newssprint.OnItemClickListener
 import com.harjot.newssprint.models.Article
 import com.harjot.newssprint.utils.Constants
+import com.harjot.newssprint.utils.OnItemClickListener
 import kotlinx.android.synthetic.main.item_article_preview.view.*
 
 class NewsArticleViewHolder(

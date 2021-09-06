@@ -1,4 +1,4 @@
-package com.harjot.newssprint
+package com.harjot.newssprint.utils
 
 import android.view.View
 import com.harjot.newssprint.models.Article

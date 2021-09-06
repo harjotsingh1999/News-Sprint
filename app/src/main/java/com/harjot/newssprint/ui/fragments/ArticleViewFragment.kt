@@ -81,11 +81,13 @@ class ArticleViewFragment : Fragment(R.layout.fragment_article) {
             if (!flag) {
                 Log.e(
                     TAG,
-                    "setViews: chip currently checked= ${article_favorite_chip.isChecked}")
+                    "setViews: chip currently checked= ${article_favorite_chip.isChecked}"
+                )
                 article_favorite_chip.isChecked = isArticleSaved
                 Log.e(
                     TAG,
-                    "setViews: chip now checked= ${article_favorite_chip.isChecked}")
+                    "setViews: chip now checked= ${article_favorite_chip.isChecked}"
+                )
                 flag = true
             }
         }

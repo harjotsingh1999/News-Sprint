@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.harjot.newssprint.OnItemClickListener
+import com.harjot.newssprint.utils.OnItemClickListener
 import com.harjot.newssprint.R
 import com.harjot.newssprint.models.Article
 import com.harjot.newssprint.viewholders.NewsArticleViewHolder

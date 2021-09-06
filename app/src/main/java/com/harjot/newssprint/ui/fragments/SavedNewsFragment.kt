@@ -9,14 +9,13 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.transition.Hold
 import com.google.android.material.transition.MaterialElevationScale
-import com.harjot.newssprint.OnItemClickListener
 import com.harjot.newssprint.R
 import com.harjot.newssprint.adapters.NewsArticleAdapter
 import com.harjot.newssprint.models.Article
 import com.harjot.newssprint.ui.NewsActivity
 import com.harjot.newssprint.ui.NewsViewModel
+import com.harjot.newssprint.utils.OnItemClickListener
 import kotlinx.android.synthetic.main.fragment_saved_news.*
 
 class SavedNewsFragment() : Fragment(R.layout.fragment_saved_news), OnItemClickListener {
