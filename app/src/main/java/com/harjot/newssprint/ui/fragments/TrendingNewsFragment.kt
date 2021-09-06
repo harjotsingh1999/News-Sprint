@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.transition.Hold
+import com.google.android.material.transition.MaterialElevationScale
 import com.harjot.newssprint.OnItemClickListener
 import com.harjot.newssprint.R
 import com.harjot.newssprint.adapters.NewsArticleAdapter
@@ -19,7 +20,10 @@ import com.harjot.newssprint.ui.NewsActivity
 import com.harjot.newssprint.ui.NewsViewModel
 import com.harjot.newssprint.utils.Constants
 import com.harjot.newssprint.utils.Resource
+import kotlinx.android.synthetic.main.fragment_search_news.*
 import kotlinx.android.synthetic.main.fragment_trending_news.*
+import kotlinx.android.synthetic.main.fragment_trending_news.loading_progress_indicator
+import kotlinx.android.synthetic.main.fragment_trending_news.paginationProgressBar
 
 class TrendingNewsFragment : Fragment(R.layout.fragment_trending_news), OnItemClickListener {
 
@@ -31,7 +35,6 @@ class TrendingNewsFragment : Fragment(R.layout.fragment_trending_news), OnItemCl
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        exitTransition = Hold()
 
         viewModel = (activity as NewsActivity).viewModel
         setUpRecyclerView()
@@ -41,7 +44,8 @@ class TrendingNewsFragment : Fragment(R.layout.fragment_trending_news), OnItemCl
             Log.e(TAG, "onViewCreated: observe changes response= $response")
             when (response) {
                 is Resource.Success -> {
-                    hideProgressBar()
+                    hideLoading()
+                    hidePaginatingProgressBar()
                     response.data?.let {
                         newsArticleAdapter.differ.submitList(it.articles.toList())
 
@@ -55,7 +59,8 @@ class TrendingNewsFragment : Fragment(R.layout.fragment_trending_news), OnItemCl
                     }
                 }
                 is Resource.Error -> {
-                    hideProgressBar()
+                    hideLoading()
+                    hidePaginatingProgressBar()
                     response.message?.let {
                         Log.e(TAG, "onViewCreated: error= $it")
                         Toast.makeText(context, "An error occurred $it", Toast.LENGTH_SHORT).show()
@@ -63,19 +68,33 @@ class TrendingNewsFragment : Fragment(R.layout.fragment_trending_news), OnItemCl
                 }
 
                 is Resource.Loading -> {
-                    showProgressBar()
+                    if (newsArticleAdapter.differ.currentList.isEmpty()) {
+                        showLoading()
+                        hidePaginatingProgressBar()
+                    } else {
+                        hideLoading()
+                        showPaginatingProgressBar()
+                    }
                 }
             }
 
         }
     }
 
-    private fun hideProgressBar() {
+    private fun showLoading() {
+        loading_progress_indicator.visibility = View.VISIBLE
+    }
+
+    private fun hideLoading() {
+        loading_progress_indicator.visibility = View.INVISIBLE
+    }
+
+    private fun hidePaginatingProgressBar() {
         paginationProgressBar.visibility = View.INVISIBLE
         isLoading = false
     }
 
-    private fun showProgressBar() {
+    private fun showPaginatingProgressBar() {
         paginationProgressBar.visibility = View.VISIBLE
         isLoading = true
     }
@@ -134,6 +153,10 @@ class TrendingNewsFragment : Fragment(R.layout.fragment_trending_news), OnItemCl
         val bundle = Bundle().apply {
             putSerializable("article", article)
         }
+
+        exitTransition = MaterialElevationScale(false)
+        reenterTransition = MaterialElevationScale(true)
+
         val extras =
             FragmentNavigatorExtras(view to getString(R.string.article_image_transition))
         findNavController().navigate(

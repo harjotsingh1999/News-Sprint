@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MVVMNewsApp</string>
+    <string name="app_name">News Sprint</string>
     <string name="string_explore">Explore</string>
     <string name="string_trending">Trending</string>
     <string name="string_saved">Saved</string>

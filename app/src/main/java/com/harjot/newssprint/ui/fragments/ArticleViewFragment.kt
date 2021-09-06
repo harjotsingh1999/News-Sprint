@@ -30,12 +30,14 @@ class ArticleViewFragment : Fragment(R.layout.fragment_article) {
     lateinit var viewModel: NewsViewModel
     lateinit var bottomSheet: MaterialCardView
     lateinit var bottomSheetBehavior: BottomSheetBehavior<MaterialCardView>
+    var flag = false
     val TAG = "ArticleViewFragment"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        sharedElementEnterTransition = MaterialContainerTransform()
-
+        sharedElementEnterTransition = MaterialContainerTransform().apply {
+            fadeMode = MaterialContainerTransform.FADE_MODE_IN
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,7 +52,7 @@ class ArticleViewFragment : Fragment(R.layout.fragment_article) {
 
     }
 
-    private fun modifyArticleSaved(articleSaved: Boolean) {
+    private fun modifyChip(articleSaved: Boolean) {
         if (articleSaved) {
             article_favorite_chip.apply {
                 chipIconTint = ColorStateList.valueOf(resources.getColor(R.color.colorRed))
@@ -70,11 +72,22 @@ class ArticleViewFragment : Fragment(R.layout.fragment_article) {
             loadUrl(article.url ?: "www.google.com")
         }
 
+
         viewModel.getSavedNews().observe(viewLifecycleOwner) {
             val isArticleSaved: Boolean = it.contains(article)
             Log.d(TAG, "onViewCreated: saved news= $it")
             Log.e(TAG, "onViewCreated: article saved= $isArticleSaved")
-            modifyArticleSaved(isArticleSaved)
+            modifyChip(isArticleSaved)
+            if (!flag) {
+                Log.e(
+                    TAG,
+                    "setViews: chip currently checked= ${article_favorite_chip.isChecked}")
+                article_favorite_chip.isChecked = isArticleSaved
+                Log.e(
+                    TAG,
+                    "setViews: chip now checked= ${article_favorite_chip.isChecked}")
+                flag = true
+            }
         }
 
         bottomSheet = fragment_article_bottom_sheet as MaterialCardView
@@ -103,15 +116,11 @@ class ArticleViewFragment : Fragment(R.layout.fragment_article) {
         article_author_chip.text = article.author ?: article.source?.name ?: "Author"
         article_time_chip.text = Constants.getLocalModifiedTime(article.publishedAt)
         article_favorite_chip.setOnCheckedChangeListener { buttonView, isChecked ->
-            Log.e(TAG, "onViewCreated: saved= $isChecked")
+            Log.e(TAG, "onViewCreated: isChecked= $isChecked")
             if (isChecked) {
-                article_favorite_chip.apply {
-                    viewModel.deleteSavedArticle(article)
-                }
+                viewModel.bookmarkArticle(article)
             } else {
-                article_favorite_chip.apply {
-                    viewModel.bookmarkArticle(article)
-                }
+                viewModel.deleteSavedArticle(article)
             }
         }
         Glide.with(this).load(article.urlToImage).into(article_fragment_image_view)

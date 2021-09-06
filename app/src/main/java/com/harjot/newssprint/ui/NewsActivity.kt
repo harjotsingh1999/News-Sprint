@@ -39,7 +39,11 @@ class NewsActivity : AppCompatActivity() {
             )
             if (destination.id == R.id.articleViewFragment) {
                 bottom_navigation_view.visibility = View.GONE
-            } else bottom_navigation_view.visibility = View.VISIBLE
+                supportActionBar?.hide()
+            } else {
+                bottom_navigation_view.visibility = View.VISIBLE
+                supportActionBar?.show()
+            }
         }
     }
 }

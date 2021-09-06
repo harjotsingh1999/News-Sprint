@@ -29,7 +29,6 @@ class SavedNewsFragment() : Fragment(R.layout.fragment_saved_news), OnItemClickL
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        exitTransition = Hold()
 
         viewModel = (activity as NewsActivity).viewModel
         setUpRecyclerView()
@@ -56,7 +55,7 @@ class SavedNewsFragment() : Fragment(R.layout.fragment_saved_news), OnItemClickL
 
                 viewModel.deleteSavedArticle(article)
 
-                Snackbar.make(view, "Successfully deleted article", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Successfully deleted article", Snackbar.LENGTH_SHORT)
                     .setAction("Undo") {
                         viewModel.bookmarkArticle(article)
                     }.show()
@@ -82,6 +81,8 @@ class SavedNewsFragment() : Fragment(R.layout.fragment_saved_news), OnItemClickL
         val bundle = Bundle().apply {
             putSerializable("article", article)
         }
+        exitTransition = MaterialElevationScale(false)
+        reenterTransition = MaterialElevationScale(true)
 
         val extras =
             FragmentNavigatorExtras(view to getString(R.string.article_image_transition))
