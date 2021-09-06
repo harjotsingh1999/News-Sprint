@@ -7,11 +7,15 @@ import android.widget.AbsListView
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.transition.Hold
+import com.harjot.newssprint.OnItemClickListener
 import com.harjot.newssprint.R
 import com.harjot.newssprint.adapters.NewsArticleAdapter
+import com.harjot.newssprint.models.Article
 import com.harjot.newssprint.ui.NewsActivity
 import com.harjot.newssprint.ui.NewsViewModel
 import com.harjot.newssprint.utils.Constants
@@ -22,7 +26,7 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
+class SearchNewsFragment : Fragment(R.layout.fragment_search_news), OnItemClickListener {
 
     lateinit var viewModel: NewsViewModel
     lateinit var newsArticleAdapter: NewsArticleAdapter
@@ -32,20 +36,11 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        exitTransition = Hold()
         viewModel = (activity as NewsActivity).viewModel
 
         setUpRecyclerView()
 
-        newsArticleAdapter.setOnItemClickListener {
-            val bundle = Bundle().apply {
-                putSerializable("article", it)
-            }
-
-            findNavController().navigate(
-                R.id.action_searchNewsFragment_to_articleViewFragment,
-                bundle
-            )
-        }
 
         var job: Job? = null
         etSearch.addTextChangedListener { editable ->
@@ -144,11 +139,23 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
     }
 
     private fun setUpRecyclerView() {
-        newsArticleAdapter = NewsArticleAdapter()
+        newsArticleAdapter = NewsArticleAdapter(this, TAG)
         rvSearchNews.apply {
             adapter = newsArticleAdapter
             layoutManager = LinearLayoutManager(activity)
             addOnScrollListener(this@SearchNewsFragment.scrollListener)
         }
+    }
+
+    override fun onItemClick(view: View, position: Int, article: Article) {
+        val bundle = Bundle().apply {
+            putSerializable("article", article)
+        }
+        val extras =
+            FragmentNavigatorExtras(view to getString(R.string.article_image_transition))
+        findNavController().navigate(
+            R.id.action_searchNewsFragment_to_articleViewFragment,
+            bundle, null, extras
+        )
     }
 }

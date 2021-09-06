@@ -19,4 +19,8 @@ data class Article(
     val title: String?,
     val url: String?,
     val urlToImage: String?
-) : Serializable
+) : Serializable {
+    override fun equals(other: Any?): Boolean {
+        return this.url == (other as Article).url
+    }
+}

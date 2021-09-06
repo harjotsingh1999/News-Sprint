@@ -10,23 +10,23 @@
         android:label="TrendingNewsFragment">
         <action
             android:id="@+id/action_trendingNewsFragment_to_articleViewFragment"
-            app:destination="@id/articleViewFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            app:destination="@id/articleViewFragment"/>
+<!--            app:enterAnim="@anim/slide_in_right"-->
+<!--            app:exitAnim="@anim/slide_out_left"-->
+<!--            app:popEnterAnim="@anim/slide_in_left"-->
+<!--            app:popExitAnim="@anim/slide_out_right" />-->
     </fragment>
     <fragment
         android:id="@+id/bookmarkedNewsFragment"
-        android:name="com.harjot.newssprint.ui.fragments.BookmarkedNewsFragment"
+        android:name="com.harjot.newssprint.ui.fragments.SavedNewsFragment"
         android:label="BookmarkedNewsFragment">
         <action
             android:id="@+id/action_bookmarkedNewsFragment_to_articleViewFragment"
-            app:destination="@id/articleViewFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            app:destination="@id/articleViewFragment"/>
+<!--            app:enterAnim="@anim/slide_in_right"-->
+<!--            app:exitAnim="@anim/slide_out_left"-->
+<!--            app:popEnterAnim="@anim/slide_in_left"-->
+<!--            app:popExitAnim="@anim/slide_out_right" />-->
     </fragment>
     <fragment
         android:id="@+id/searchNewsFragment"
@@ -34,11 +34,11 @@
         android:label="SearchNewsFragment">
         <action
             android:id="@+id/action_searchNewsFragment_to_articleViewFragment"
-            app:destination="@id/articleViewFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            app:destination="@id/articleViewFragment"/>
+<!--            app:enterAnim="@anim/slide_in_right"-->
+<!--            app:exitAnim="@anim/slide_out_left"-->
+<!--            app:popEnterAnim="@anim/slide_in_left"-->
+<!--            app:popExitAnim="@anim/slide_out_right" />-->
     </fragment>
     <fragment
         android:id="@+id/articleViewFragment"

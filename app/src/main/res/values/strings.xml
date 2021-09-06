@@ -3,4 +3,5 @@
     <string name="string_explore">Explore</string>
     <string name="string_trending">Trending</string>
     <string name="string_saved">Saved</string>
+    <string name="article_image_transition">article_image_transition</string>
 </resources>

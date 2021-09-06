@@ -6,18 +6,22 @@ import android.view.View
 import android.widget.AbsListView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.transition.Hold
+import com.harjot.newssprint.OnItemClickListener
 import com.harjot.newssprint.R
 import com.harjot.newssprint.adapters.NewsArticleAdapter
+import com.harjot.newssprint.models.Article
 import com.harjot.newssprint.ui.NewsActivity
 import com.harjot.newssprint.ui.NewsViewModel
 import com.harjot.newssprint.utils.Constants
 import com.harjot.newssprint.utils.Resource
 import kotlinx.android.synthetic.main.fragment_trending_news.*
 
-class TrendingNewsFragment : Fragment(R.layout.fragment_trending_news) {
+class TrendingNewsFragment : Fragment(R.layout.fragment_trending_news), OnItemClickListener {
 
 
     lateinit var viewModel: NewsViewModel
@@ -27,20 +31,11 @@ class TrendingNewsFragment : Fragment(R.layout.fragment_trending_news) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        exitTransition = Hold()
 
         viewModel = (activity as NewsActivity).viewModel
         setUpRecyclerView()
 
-        newsArticleAdapter.setOnItemClickListener {
-            val bundle = Bundle().apply {
-                putSerializable("article", it)
-            }
-
-            findNavController().navigate(
-                R.id.action_trendingNewsFragment_to_articleViewFragment,
-                bundle
-            )
-        }
         viewModel.trendingNews.observe(viewLifecycleOwner) { response ->
 
             Log.e(TAG, "onViewCreated: observe changes response= $response")
@@ -127,11 +122,23 @@ class TrendingNewsFragment : Fragment(R.layout.fragment_trending_news) {
     }
 
     private fun setUpRecyclerView() {
-        newsArticleAdapter = NewsArticleAdapter()
+        newsArticleAdapter = NewsArticleAdapter(this, TAG)
         rvBreakingNews.apply {
             adapter = newsArticleAdapter
             layoutManager = LinearLayoutManager(activity)
             addOnScrollListener(this@TrendingNewsFragment.scrollListener)
         }
+    }
+
+    override fun onItemClick(view: View, position: Int, article: Article) {
+        val bundle = Bundle().apply {
+            putSerializable("article", article)
+        }
+        val extras =
+            FragmentNavigatorExtras(view to getString(R.string.article_image_transition))
+        findNavController().navigate(
+            R.id.action_trendingNewsFragment_to_articleViewFragment,
+            bundle, null, extras
+        )
     }
 }
