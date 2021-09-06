@@ -21,18 +21,18 @@ Added **Material motion**, **Container transform** to the apps for beautiful tra
 ## Screenshots
 
 ### Home Fragment
-<img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/home_fragment.jpeg" height="600">
+<img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/home_fragment.jpeg" height="500">
 
 ### Search Fragment
-<img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/search_fragment.jpeg" height="600">
+<img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/search_fragment.jpeg" height="500">
 
 ### Search Fragment
-<img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/saved_fragment1.jpeg" height="600">   <img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/saved_fragment2.jpeg" height="600">    <img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/saved_fragment3.jpeg" height="600">
+<img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/saved_fragment1.jpeg" height="500">   <img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/saved_fragment2.jpeg" height="500">    <img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/saved_fragment3.jpeg" height="500">
 
 ### Article Fragment
-<img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/article_fragment1.jpeg" height="600">    <img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/article_fragment2.jpeg" height="600">    <img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/article_fragment5.jpeg" height="600">
+<img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/article_fragment1.jpeg" height="500">    <img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/article_fragment2.jpeg" height="500">    <img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/article_fragment5.jpeg" height="500">
 <br>
-<img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/article_fragment4.jpeg" height="600">    <img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/article_fragment6.jpeg" height="600">    <img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/article_fragment3.jpeg" height="600">
+<img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/article_fragment4.jpeg" height="500">    <img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/article_fragment6.jpeg" height="500">    <img src="https://github.com/harjotsingh1999/News-Sprint/blob/master/screenshots/article_fragment3.jpeg" height="500">
 
 
 
